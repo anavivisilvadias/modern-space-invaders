@@ -45,7 +45,7 @@ function createParticles({ object, color, fades }) {
         },
         radius: Math.random() * 3,
         color: color || "BAA0DE",
-        fades 
+        fades
       })
     );
   }
