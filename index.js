@@ -123,4 +123,27 @@ function animate() {
     
     c.fillStyle = "black";
     c.fillRect(0, 0, canvas.width, camvas.height);
+
+    for(let i = PowerUp.length - 1; i >= 0; i--) {
+        const PowerUp = PowerUps[i];
+
+        if(PowerUp.position.x - powerUp.radius >= canvas.width) 
+            powerUps.splice(i, 1);
+        else powerUp.update();
+    }
+
+    if(frames % 500 === 0) {
+        powerUps.push(
+            new PowerUp({
+                position: {
+                    x: 0,
+                    y: Math.random() * 300 + 15
+                },
+                velocity: {
+                    x: 5,
+                    y: 0
+                },
+            })
+        );
+    }
 }
