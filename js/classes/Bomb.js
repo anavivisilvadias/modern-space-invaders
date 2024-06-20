@@ -4,7 +4,7 @@ class Bomb {
     this.position = position;
     this.velocity = velocity;
     this.radius = 0;
-    this.color = " ";
+    this.color = "red";
     this.opacity = 1;
     this.active = false;
 
@@ -23,18 +23,19 @@ class Bomb {
     c.fill();
     c.restore();
   }
+
   update() {
+    this.draw();
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
-    this.draw();
 
     if (
-      this.position.x + this.radius + this.velocity.x >= Canvas.width ||
+      this.position.x + this.radius + this.velocity.x >= canvas.width ||
       this.position.x - this.radius + this.velocity.x <= 0
     ) {
       this.velocity.x = -this.velocity.x;
     } else if (
-      this.position.y + this.radius + this.velocity.y >= Canvas.height ||
+      this.position.y + this.radius + this.velocity.y >= canvas.height ||
       this.position.y - this.radius + this.velocity.y <= 0
     )
       this.velocity.y = -this.velocity.y;
@@ -75,8 +76,8 @@ class PowerUp {
   }
 
   update() {
+    this.draw();
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
-    this.draw();
   }
 }
