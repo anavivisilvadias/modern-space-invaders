@@ -7,8 +7,8 @@ function createScoreLabel({ score = 100, object }) {
   scoreLabel.innerHTML = score;
   scoreLabel.style.position = "absolute";
   scoreLabel.style.color = "white";
-  scoreLabel.style.left = object.position.x + "px";
   scoreLabel.style.top = object.position.y + "px";
+  scoreLabel.style.left = object.position.x + "px";
   scoreLabel.style.userSelect = "none";
 
   document.querySelector("#parentDiv").appendChild(scoreLabel);
@@ -33,7 +33,7 @@ function rectangularCollision({ rectangle1, rectangle2 }) {
 
 function createParticles({ object, color, fades }) {
   for (let i = 0; i < 15; i++) {
-    createParticles.push(
+    particles.push(
       new Particle({
         position: {
           x: object.position.x + object.width / 2,
@@ -44,7 +44,7 @@ function createParticles({ object, color, fades }) {
           y: (Math.random() - 0.5) * 2
         },
         radius: Math.random() * 3,
-        color: color || "BAA0DE",
+        color: color || "#BAA0DE",
         fades
       })
     );
